@@ -1,73 +1,52 @@
 <template>
-  <div class="app-main-layout">
-    <nav class="navbar orange lighten-1">
-      <div class="nav-wrapper">
-        <div class="navbar-left">
-          <a href="#">
-            <i class="material-icons black-text">dehaze</i>
-          </a>
-          <span class="black-text">12.12.12</span>
-        </div>
+  <div>
+    <Loader v-if="loading"></Loader>
+    <div v-else class="app-main-layout">
+      <Navbar @clickMenu="isOpen = !isOpen" />
 
-        <ul class="right hide-on-small-and-down">
-          <li>
-            <a class="dropdown-trigger black-text" href="#" data-target="dropdown">
-              USER NAME
-              <i class="material-icons right">arrow_drop_down</i>
-            </a>
+      <Sidebar :isOpen="isOpen" />
 
-            <ul id="dropdown" class="dropdown-content">
-              <li>
-                <a href="#" class="black-text">
-                  <i class="material-icons">account_circle</i>Профиль
-                </a>
-              </li>
-              <li class="divider" tabindex="-1"></li>
-              <li>
-                <a href="#" class="black-text">
-                  <i class="material-icons">assignment_return</i>Выйти
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <ul class="sidenav app-sidenav open">
-      <li>
-        <a href="#" class="waves-effect waves-orange pointer">Счет</a>
-      </li>
-      <li>
-        <a href="#" class="waves-effect waves-orange pointer">История</a>
-      </li>
-      <li>
-        <a href="#" class="waves-effect waves-orange pointer">Планирование</a>
-      </li>
-      <li>
-        <a href="#" class="waves-effect waves-orange pointer">Новая запись</a>
-      </li>
-      <li>
-        <a href="#" class="waves-effect waves-orange pointer">Категории</a>
-      </li>
-    </ul>
-
-    <main class="app-content">
-      <div class="app-page">
+      <!-- bind value to class to spread content on click -->
+      <main class="app-content" :class="{full: !isOpen}">
+        <div class="app-page">
+          <!-- here render pages -->
           <router-view />
-      </div>
-    </main>
+        </div>
+      </main>
 
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large blue" href="#">
-        <i class="large material-icons">add</i>
-      </a>
+      <div class="fixed-action-btn">
+        <router-link class="btn-floating btn-large blue" to="/record">
+          <i class="large material-icons">add</i>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Navbar from "@/components/app/Navbar";
+import Sidebar from "@/components/app/Sidebar";
+export default {
+  name: "main-layout",
+  components: {
+    Navbar,
+    Sidebar
+  },
+  data() {
+    return {
+      isOpen: true,
+      loading: true
+    };
+  },
+  //all asynchrone calls must be done in mounted (DOM is ready)
+  async mounted() {
+    if (!Object.keys(this.$store.getters.info).length) {
+      await this.$store.dispatch("fetchInfo");
+    }
+
+    this.loading = false;
+  }
+};
 </script>
 
 <style>
