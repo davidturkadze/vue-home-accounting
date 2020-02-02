@@ -49,7 +49,7 @@ const routes = [
     component: Record
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'detail',
     meta: { layout: 'main', auth: true },
     component: Detail
