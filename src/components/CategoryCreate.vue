@@ -79,9 +79,6 @@ export default {
 
         //emit created methods, the parent component can now listen to this event
         this.$emit('created', category)
-
-        /* eslint-disable */
-        console.log(category)
       } catch (e) {
         /* eslint-disable */
         console.log(e)

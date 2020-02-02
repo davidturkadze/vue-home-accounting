@@ -8,6 +8,7 @@ import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
 import dateFilter from '@/filters/date.filter'
 import currencyFilter from '@/filters/currency.filter'
+import toolTipDirective from '@/directives/tooltip.directive'
 
 //imports without any object (name) must be imported at the end of the import list
 import 'materialize-css'
@@ -24,6 +25,7 @@ Vue.use(messagePlugin)
 //register filter globally
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
+Vue.directive('tooltip', toolTipDirective)
 //register component globally
 Vue.component('Loader', Loader)
 
