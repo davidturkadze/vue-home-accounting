@@ -4,7 +4,7 @@
     <div v-else class="app-main-layout">
       <Navbar @clickMenu="isOpen = !isOpen" />
 
-      <Sidebar :isOpen="isOpen" />
+      <Sidebar :isOpen="isOpen" :key="locale"/>
 
       <!-- bind value to class to spread content on click -->
       <main class="app-content" :class="{full: !isOpen}">
@@ -50,12 +50,13 @@ export default {
   computed: {
     error() {
       return this.$store.getters.error;
+    },
+    locale() {
+      return this.$store.getters.info.locale
     }
   },
   watch: {
     error(fbError) {
-      /* eslint-disable */
-      console.log(fbError);
       this.$error(messages[fbError.code] || 'something went wrong')
     }
   }
