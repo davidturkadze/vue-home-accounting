@@ -34,6 +34,12 @@
 <script>
 export default {
   name: 'detail',
+    //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title('Detail_Title')
+    }
+  },
   data() {
     return {
       record: null,

@@ -10,22 +10,27 @@
 
         <CategoryEdit
           v-if="categories.length"
-         :key="categories.length + updateCount" 
-         :categories="categories"
-         @updated="updateCategories"
-         >
-         </CategoryEdit>
-         <p v-else class="center">No categories yet</p>
+          :key="categories.length + updateCount"
+          :categories="categories"
+          @updated="updateCategories"
+        ></CategoryEdit>
+        <p v-else class="center">No categories yet</p>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import CategoryCreate from "@/components/CategoryCreate"
-import CategoryEdit from "@/components/CategoryEdit"
+import CategoryCreate from "@/components/CategoryCreate";
+import CategoryEdit from "@/components/CategoryEdit";
 export default {
   name: "Categories",
+  //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title("Menu_Categories")
+    };
+  },
   data() {
     return {
       categories: [],
@@ -34,8 +39,8 @@ export default {
     };
   },
   async mounted() {
-    this.categories = await this.$store.dispatch("fetchCategories")
-    this.loading = false
+    this.categories = await this.$store.dispatch("fetchCategories");
+    this.loading = false;
   },
   components: {
     CategoryCreate,
@@ -43,13 +48,13 @@ export default {
   },
   methods: {
     addNewCategory(category) {
-      this.categories.push(category)
+      this.categories.push(category);
     },
     updateCategories(category) {
-      const idx = this.categories.findIndex(c  => c.id = category.id)
-      this.categories[idx].title = category.title
-      this.categories[idx].limit = category.limit
-      this.updateCount++
+      const idx = this.categories.findIndex(c => (c.id = category.id));
+      this.categories[idx].title = category.title;
+      this.categories[idx].limit = category.limit;
+      this.updateCount++;
     }
   }
 };

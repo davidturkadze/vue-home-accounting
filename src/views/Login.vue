@@ -62,6 +62,12 @@ import messages from "@/utils/messages";
 
 export default {
   name: "login",
+  //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title("Login")
+    };
+  },
   data() {
     return {
       email: "",
@@ -89,13 +95,13 @@ export default {
         email: this.email,
         password: this.password
       };
-      try{
+      try {
         //dispatch login method in auth.js (await because login is also async)
         await this.$store.dispatch("login", formData);
         this.$router.push("/");
-      } catch(e){
+      } catch (e) {
         /* eslint-disable */
-        console.log(e)
+        console.log(e);
       }
     }
   }

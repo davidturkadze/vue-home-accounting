@@ -75,6 +75,12 @@
 import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
+  //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title("Register")
+    };
+  },
   data() {
     return {
       email: "",
@@ -103,12 +109,12 @@ export default {
         name: this.name
       };
 
-      try{
+      try {
         await this.$store.dispatch("register", formData);
         this.$router.push("/");
-      } catch(e){
+      } catch (e) {
         /* eslint-disable */
-        console.log(e)
+        console.log(e);
       }
     }
   }

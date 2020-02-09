@@ -31,11 +31,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-import currencyFilter from '@/filters/currency.filter'
+import { mapGetters } from "vuex";
+import currencyFilter from "@/filters/currency.filter";
 
 export default {
   name: "planning",
+  //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title("Menu_Planning")
+    };
+  },
   data() {
     return {
       loading: true,
@@ -60,10 +66,12 @@ export default {
       const percent = (100 * spend) / cat.limit;
       const progressPercent = percent > 100 ? 100 : percent;
       const progressColor =
-        percent < 60 ? "green" : percent < 100 ? "yellow" : "red"
+        percent < 60 ? "green" : percent < 100 ? "yellow" : "red";
 
-        const tooltipValue = cat.limit - spend
-        const tooltip = `${tooltipValue < 0 ? 'exceeding by ' : 'left'} ${currencyFilter(Math.abs(tooltipValue))}`
+      const tooltipValue = cat.limit - spend;
+      const tooltip = `${
+        tooltipValue < 0 ? "exceeding by " : "left"
+      } ${currencyFilter(Math.abs(tooltipValue))}`;
 
       return {
         ...cat,

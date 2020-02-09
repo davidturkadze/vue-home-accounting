@@ -6,12 +6,14 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import messagePlugin from '@/utils/message.plugin'
+import TitlePlugin from '@/utils/title.plugin'
 import Loader from '@/components/app/Loader'
 import dateFilter from '@/filters/date.filter'
 import currencyFilter from '@/filters/currency.filter'
 import toolTipDirective from '@/directives/tooltip.directive'
 import localifeFilter from '@/filters/localize.filter'
 import VueMeta from 'vue-meta'
+
 
 //imports without any object (name) must be imported at the end of the import list
 import 'materialize-css'
@@ -26,6 +28,7 @@ Vue.use(Vuelidate)
 //Toast plugin registration
 Vue.use(messagePlugin)
 Vue.use(VueMeta)
+Vue.use(TitlePlugin)
 //register filter globally
 Vue.filter('date', dateFilter)
 Vue.filter('localize', localifeFilter)

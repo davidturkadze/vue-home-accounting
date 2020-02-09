@@ -40,7 +40,14 @@
 import { mapGetters, mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
 
+
 export default {
+  //VueMeta component for page titles
+  metaInfo() {
+    return {
+      title: this.$title('Profile')
+    }
+  },
   data() {
     return {
       name: "",
