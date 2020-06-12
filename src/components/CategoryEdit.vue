@@ -2,7 +2,7 @@
   <div class="col s12 m6">
     <div>
       <div class="page-subtitle">
-        <h4>Редактировать</h4>
+        <h4>{{'Edit_Cat' | localize}}</h4>
       </div>
 
       <form @submit.prevent="submitHandler">
@@ -15,7 +15,7 @@
              >
              {{c.title}}</option>
           </select>
-          <label>Выберите категорию</label>
+          <label>{{'Select_Cat' | localize}}</label>
         </div>
 
         <div class="input-field">
@@ -25,7 +25,7 @@
             v-model="title"
             :class="{invalid: $v.title.$dirty && !$v.title.required}"
           />
-          <label for="name">Название</label>
+          <label for="name">{{'Name' | localize}}</label>
           <span
             v-if="$v.title.$dirty && !$v.title.required"
             class="helper-text invalid"
@@ -39,7 +39,8 @@
             v-model.number="limit"
             :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}"
           />
-          <label for="limit">Лимит</label>
+          <label for="limit">{{'Limit'
+             | localize}}</label>
           <span
             class="helper-text invalid"
             v-if="$v.limit.$dirty && !$v.limit.minValue"
@@ -47,7 +48,7 @@
         </div>
 
         <button class="btn waves-effect waves-light" type="submit">
-          Обновить
+          Update
           <i class="material-icons right">send</i>
         </button>
       </form>

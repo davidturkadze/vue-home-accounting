@@ -21,10 +21,10 @@
 
       <div class="switch">
         <label>
-          English
-          <input type="checkbox" v-model="isRuLocale"/>
+          Deutsch
+          <input type="checkbox" v-model="isEnLocale"/>
           <span class="lever"></span>
-          Русский
+          English
         </label>
       </div>
 
@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       name: "",
-      isRuLocale: true
+      isEnLocale: true
     };
   },
   validations: {
@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     this.name = this.info.name;
-    this.isRuLocale = this.info.locale === 'ru-RU'
+    this.isEnLocale = this.info.locale === 'en-US'
     setTimeout(() => {
       window.M.updateTextFields();
     });
@@ -77,7 +77,7 @@ export default {
       try {
        await this.updateInfo({
          name: this.name,
-         locale: this.isRuLocale ? 'ru-RU' : 'en-US'
+         locale: this.isEnLocale ? 'en-US' : 'de-DE'
        })
       } catch (e) {
         /* eslint-disable */

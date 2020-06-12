@@ -14,10 +14,10 @@ export default {
         async register({ dispatch, commit }, { email, password, name }) {
             try {
                 await firebase.auth().createUserWithEmailAndPassword(email, password)
-                // get user Id after writing (bill, name) in the database
-                //calls action getUid(), dispatch to call action
+                    // get user Id after writing (bill, name) in the database
+                    //calls action getUid(), dispatch to call action
                 const uid = await dispatch('getUid')
-                //write in the database (path: users->userId->info(bill, name))
+                    //write in the database (path: users->userId->info(bill, name))
                 await firebase.database().ref(`/users/${uid}/info`).set({
                     bill: 100000,
                     name: name
@@ -31,7 +31,7 @@ export default {
             const user = firebase.auth().currentUser
             return user ? user.uid : null
         },
-        async logout({commit}) {
+        async logout({ commit }) {
             await firebase.auth().signOut()
             commit('clearInfo')
         }

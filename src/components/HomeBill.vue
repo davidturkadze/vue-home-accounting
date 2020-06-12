@@ -2,7 +2,7 @@
   <div class="col s12 m6 l4">
     <div class="card light-blue bill-card">
       <div class="card-content white-text">
-        <span class="card-title">Счет в валюте</span>
+        <span class="card-title">{{'Bill_In' | localize}} {{this.currencies.join(", ")}}</span>
 
         <p
          v-for="cur of currencies"
@@ -20,13 +20,13 @@ export default {
   props: ['rates'],
   data() {
     return {
-      currencies: ['RUB', 'USD', 'EUR']
+      currencies: ['EUR', 'USD', 'GBP']
     }
   },
   computed: {
     base() {
-      //return main currency RUB in the HomeBill component
-      return this.$store.getters.info.bill / (this.rates['RUB'] / this.rates['EUR'])
+      //return main currency EUR in the HomeBill component
+      return this.$store.getters.info.bill
     }
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{'Record_History' | localize}}</h3>
     </div>
 
     <div class="history-chart">
@@ -11,8 +11,8 @@
     <Loader v-if="loading"></Loader>
 
     <p class="center" v-else-if="!records.length">
-      No records yet
-      <router-link to="/record">Add the first one.</router-link>
+      {{'No_Records_Yet' | localize}}
+      <router-link to="/record">{{'Add_The_First_One' | localize}}.</router-link>
     </p>
 
     <section v-else>

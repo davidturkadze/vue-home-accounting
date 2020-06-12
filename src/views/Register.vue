@@ -1,7 +1,7 @@
 <template>
   <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
-      <span class="card-title">Домашняя бухгалтерия</span>
+      <span class="card-title">Home Accounting</span>
       <div class="input-field">
         <input
           id="email"
@@ -28,7 +28,7 @@
           v-model.trim="password"
           :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
         />
-        <label for="password">Пароль</label>
+        <label for="password">Password</label>
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
@@ -45,27 +45,27 @@
           v-model.trim="name"
           :class="{invalid: $v.name.$dirty && !$v.name.required}"
         />
-        <label for="name">Имя</label>
+        <label for="name">Name</label>
         <small class="helper-text invalid" v-if="$v.name.$dirty && !$v.name.required">Enter yourname</small>
       </div>
       <p>
         <label>
           <input type="checkbox" v-model="agree" />
-          <span>С правилами согласен</span>
+          <span>I agree with the Rules</span>
         </label>
       </p>
     </div>
     <div class="card-action">
       <div>
         <button class="btn waves-effect waves-light auth-submit" type="submit">
-          Зарегистрироваться
+          Sign in
           <i class="material-icons right">send</i>
         </button>
       </div>
 
       <p class="center">
-        Уже есть аккаунт?
-        <router-link to="/login">Войти!</router-link>
+        Already have account?
+        <router-link to="/login">Log in!</router-link>
       </p>
     </div>
   </form>

@@ -3,18 +3,18 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Сумма</th>
-        <th>Дата</th>
-        <th>Категория</th>
-        <th>Тип</th>
-        <th>Открыть</th>
+        <th>{{'Total' | localize}}</th>
+        <th>{{'Date' | localize}}</th>
+        <th>{{'Category' | localize}}</th>
+        <th>{{'Type' | localize}}</th>
+        <th>{{'Open' | localize}}</th>
       </tr>
     </thead>
 
     <tbody>
       <tr v-for="(record, idx) of records" :key="record.id">
         <td>{{ idx +1}}</td>
-        <td>{{record.amount | currency('RUB')}}</td>
+        <td>{{record.amount | currency('EUR')}}</td>
         <td>{{record.date | date('datetime')}}</td>
         <td>{{record.categoryName}}</td>
         <td>

@@ -3,7 +3,7 @@
     <Loader v-if="loading"></Loader>
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
-        <router-link to="/history" class="breadcrumb">History</router-link>
+        <router-link to="/history" class="breadcrumb">{{'History' | localize}}</router-link>
         <a @click.prevent class="breadcrumb">
           {{record.type  === 'income' ? 'Income' : 'Outcome'}}
         </a>
@@ -15,11 +15,11 @@
             'green' : record.type === 'income'
           }">
             <div class="card-content white-text">
-              <p>Описание: {{record.description}}</p>
-              <p>Сумма: {{record.amount | currency('RUB')}}</p>
-              <p>Категория: {{record.categoryName}}</p>
+              <p>{{'Description' | localize}}: {{record.description}}</p>
+              <p>{{'Total' | localize}}: {{record.amount | currency('RUB')}}</p>
+              <p>{{'Category' | localize}}: {{record.categoryName}}</p>
 
-              <small>{{record.date | date('datetime')}}</small>
+              <p>{{record.date | date('datetime')}}</p>
             </div>
           </div>
         </div>
