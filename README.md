@@ -1,4 +1,4 @@
-# vue-youtube
+# Home accounting
 
 ## Project setup
 ```
