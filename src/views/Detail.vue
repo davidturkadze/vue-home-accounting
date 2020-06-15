@@ -16,7 +16,7 @@
           }">
             <div class="card-content white-text">
               <p>{{'Description' | localize}}: {{record.description}}</p>
-              <p>{{'Total' | localize}}: {{record.amount | currency('RUB')}}</p>
+              <p>{{'Total' | localize}}: {{record.amount | currency('EUR')}}</p>
               <p>{{'Category' | localize}}: {{record.categoryName}}</p>
 
               <p>{{record.date | date('datetime')}}</p>

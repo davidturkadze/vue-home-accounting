@@ -69,13 +69,13 @@ export default {
     return {
       select: null,
       title: "",
-      limit: 100,
+      limit: 1,
       current: null
     };
   },
   validations: {
     title: { required },
-    limit: { minValue: minValue(100) }
+    limit: { minValue: minValue(1) }
   },
   watch: {
     //the name of the function must match the model we are watching (hier current model in select)

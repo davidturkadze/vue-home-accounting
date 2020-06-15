@@ -50,12 +50,12 @@ export default {
   data() {
     return {
       title: "",
-      limit: 100
+      limit: 1
     };
   },
   validations: {
     title: { required },
-    limit: { minValue: minValue(100) }
+    limit: { minValue: minValue(1) }
   },
   mounted() {
     window.M.updateTextFields();
@@ -73,7 +73,7 @@ export default {
           limit: this.limit
         })
         this.title = ''
-        this.limit = 100
+        this.limit = 1
         this.$v.$reset()
         this.$message('A new category has been created')
 

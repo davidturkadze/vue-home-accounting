@@ -19,7 +19,7 @@ export default {
                 const uid = await dispatch('getUid')
                     //write in the database (path: users->userId->info(bill, name))
                 await firebase.database().ref(`/users/${uid}/info`).set({
-                    bill: 100000,
+                    bill: 2500,
                     name: name
                 })
             } catch (e) {
