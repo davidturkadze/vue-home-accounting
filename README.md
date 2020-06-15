@@ -1,6 +1,7 @@
 # Home accounting
-### Small project for home accounting. Just sign up (email can be fake), add, new categories and records
-### and calculate income and outcome
+
+mall project for home accounting. Just sign up (email can be fake), add, new categories and records
+and calculate income and outcome
 
 ## Project setup
 ```
