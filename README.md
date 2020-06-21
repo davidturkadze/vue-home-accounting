@@ -1,6 +1,6 @@
 # Home accounting
 
-Small Vue.js and Firebase (authentification and backend) project for home accounting. Just sign up (email can be fake), add, new categories and records and calculate your income and outcome
+Small Vue.js and Firebase (authentification and backend) project for home accounting. Just sign up (email can be fake), add new categories and records and calculate your income and outcome
 
 ## Project setup
 ```
